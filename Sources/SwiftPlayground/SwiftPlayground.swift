@@ -69,37 +69,39 @@ struct SwiftPlayground {
             print ("W  W  W")
             print ("W  W  W")
             print (" W  W")
-            print ("Enter An Adjective...")
-            let adjective1 = readLine()!
+            }
 
-            print ("Enter A Noun...")
-            let noun1 = readLine()!
+        print ("Enter An Adjective...")
+        let adjective1 = readLine()!
 
-            print ("Enter Another Noun...")
-            let noun2 = readLine()!
+        print ("Enter A Noun...")
+        let noun1 = readLine()!
 
-            print ("Enter A Verb...")
-            let verb1 = readLine()!
+        print ("Enter Another Noun...")
+        let noun2 = readLine()!
 
-            print("Enter Another Verb...")
-            let verb2 = readLine()!
+        print ("Enter A Verb...")
+        let verb1 = readLine()!
 
-            print("Enter Yet Another Noun...")
-            let noun3 = readLine()!
+        print("Enter Another Verb...")
+        let verb2 = readLine()!
 
-            print("Just one more Adjective...")
-            let adjective2 = readLine()!
+        print("Enter Yet Another Noun...")
+        let noun3 = readLine()!
 
-            print("Actually, One more would be good...")
-            let adjective3 = readLine()!
+        print("Just one more Adjective...")
+        let adjective2 = readLine()!
 
-            print("And a proper noun, if you can!")
-            let properNoun1 = readLine()!
+        print("Actually, One more would be good...")
+        let adjective3 = readLine()!
 
-            let madLibString = "When the sun did not rise on the \(adjective1) town of \(noun1), The \(adjective2) \(noun2) Rung the bell of \(noun3) to alert the \(adjective1) \(noun2). As \(adjective3) spread among the \(noun2). But then, when all seemed lost, \(properNoun1) \(verb1) from their endless slumber to end the \(adjective3) and bring peace to the \(adjective1) \(noun2) by \(verb2)."
+        print("And a proper noun, if you can!")
+        let properNoun1 = readLine()!
 
-            print(madLibString)
-        }
+        let madLibString = "When the sun did not rise on the \(adjective1) town of \(noun1), The \(adjective2) \(noun2) Rung the bell of \(noun3) to alert the \(adjective1) \(noun2). \(adjective3) spread among the \(noun2). But then, when all seemed lost, \(properNoun1) \(verb1) from their endless slumber to end the \(adjective3) and bring peace to the \(adjective1) \(noun2) by \(verb2)."
+
+        print(madLibString)
+        
 
     }
 }
