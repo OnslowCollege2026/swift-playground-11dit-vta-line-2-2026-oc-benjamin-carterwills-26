@@ -5,71 +5,33 @@
 struct SwiftPlayground {
     static func main() {
         print("Hello, world!")
-        //Prints "Hello World"
+        
+        let x = 10
+        let y = 274
 
-        let firstname = "Benjamin Carter Wills"
-        print(firstname)
+        let added = x+y
+        let subtracted = x-y
+        let multiplied = x*y
+        let divided = x/y
+        let remainder = x%y
 
-        //Prints "Onslow College"
-        print("Onslow College")
+        let added2 = y+x
+        let subtracted2 = y-x
+        let multiplied2 = y*x
+        let divided2 = y/x
+        let remainder2 = y%x
 
+        print("\(x) + \(y) = \(added)")
+        print("\(x) - \(y) = \(subtracted)")
+        print("\(x) * \(y) = \(multiplied)")
+        print("\(x) / \(y) = \(divided)")
+        print("\(x) % \(y) = \(remainder)")
 
-        let primaryrepeatnum = 50 //Constants used for the number of repeats in for loops
-        let initialrepeatnum = 50 //Primary is for the first loop, Initial is for the intitials loop.
-        let countdownrepeatnum = 10 //This is used for the countdown.
-
-        var number = 0 //Variables used in the various loops.
-        var countdown = countdownrepeatnum //Ensures the countdown always ends with 0.
-
-        for _ in 1...primaryrepeatnum {
-            number = number + 1
-            print("The number is now \(number)")
-        }
-
-
-
-        print ("B B B")  //The following lines print out a visual "B" shape out of B's
-        print ("B     B")
-        print ("B B B B")
-        print ("B      B")
-        print ("B B B B")
-        print (" ")  //Puts a space in the lines
-        print (" C C C") //Prints out a C
-        print ("C")
-        print ("C")
-        print ("C      C")
-        print (" C C C")
-        print (" ")
-        print ("W     W") //Prints a W
-        print ("W     W")
-        print ("W  W  W")
-        print ("W  W  W")
-        print (" W  W")
-
-        for _ in 1...countdownrepeatnum {
-            countdown = countdown - 1
-            print("Immabout to repeat this thing a billion times! you have = \(countdown)")
-        }
-
-        for _ in 1...initialrepeatnum{
-            print ("B B B")  //The following lines print out a visual "B" shape out of B's
-            print ("B     B")
-            print ("B B B B")
-            print ("B      B")
-            print ("B B B B")
-            print (" ")  //Puts a space in the lines
-            print (" C C C") //Prints out a C
-            print ("C")
-            print ("C")
-            print ("C      C")
-            print (" C C C")
-            print (" ")
-            print ("W     W") //Prints a W
-            print ("W     W")
-            print ("W  W  W")
-            print ("W  W  W")
-            print (" W  W")
-        }
+        print("\(y) + \(x) = \(added2)")
+        print("\(y) - \(x) = \(subtracted2)")
+        print("\(y) * \(x) = \(multiplied2)")
+        print("\(y) / \(x) = \(divided2)")
+        print("\(y) % \(x) = \(remainder2)")
 
     }
 }
