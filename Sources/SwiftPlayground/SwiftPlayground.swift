@@ -5,15 +5,15 @@
 struct SwiftPlayground {
     static func main() {
 
-        var adultFares: [Int]  = [800, 1200, 1500]
+        let adultFares: [Int]  = [800, 1200, 1500]
 
         print(adultFares)
 
-        var childFares: [Int]  = [400, 600, 750]
+        let childFares: [Int]  = [400, 600, 750]
 
         print(childFares)
 
-        var ticketTypes: [String] = [
+        let ticketTypes: [String] = [
             "No Ticket Type!",
             "24-Hour",
             "48-Hour",
@@ -31,13 +31,13 @@ struct SwiftPlayground {
 
         if isAdult{
             if ticketType == 1{
-                print("Your adult ticket price is: \(adultFares[0])")
+                print("Your \(ticketTypes[1]) adult ticket price is: \(adultFares[0])")
             }
             else if ticketType == 2{
-                print("Your adult ticket price is: \(adultFares[1])")
+                print("Your \(ticketTypes[2]) adult ticket price is: \(adultFares[1])")
             }
             else if ticketType == 3{
-                print("Your adult ticket price is: \(adultFares[2])")
+                print("Your \(ticketTypes[3]) adult ticket price is: \(adultFares[2])")
             }
             else {
                 print("Sorry mate, that's not a valid ticket index!")
@@ -45,13 +45,13 @@ struct SwiftPlayground {
         }
         else{
             if ticketType == 1{
-                print("Your child ticket price is: \(childFares[0])")
+                print("Your \(ticketTypes[1]) child ticket price is: \(childFares[0])")
             }
             else if ticketType == 2{
-                print("Your child ticket price is: \(childFares[1])")
+                print("Your \(ticketTypes[2]) child ticket price is: \(childFares[1])")
             }
             else if ticketType == 3{
-                print("Your child ticket price is: \(childFares[2])")
+                print("Your \(ticketTypes[3]) child ticket price is: \(childFares[2])")
             }
             else { 
                 print("Sorry, kid! That's not the correct number!")
