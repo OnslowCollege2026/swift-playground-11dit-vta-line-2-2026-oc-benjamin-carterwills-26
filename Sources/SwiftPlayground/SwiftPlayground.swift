@@ -19,7 +19,7 @@ struct SwiftPlayground {
             "72-Hour"
         ]
 
-        let userAge = readLine()
+        let userAge = Int(readLine()!)!
 
 
 
