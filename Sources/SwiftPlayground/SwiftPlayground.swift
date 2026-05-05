@@ -14,12 +14,51 @@ struct SwiftPlayground {
         print(childFares)
 
         var ticketTypes: [String] = [
+            "No Ticket Type!",
             "24-Hour",
             "48-Hour",
             "72-Hour"
         ]
 
+        print("Enter Your Age:")
+        
         let userAge = Int(readLine()!)!
+        let isAdult = userAge >= 16
+
+        print("Enter Your Ticket Type: (1 = 24-Hour, 2 = 48 Hour, 3 = 72 Hour)")
+
+        let ticketType = Int(readLine()!)!
+
+        if isAdult{
+            if ticketType == 1{
+                print("Your adult ticket price is: \(adultFares[0])")
+            }
+            else if ticketType == 2{
+                print("Your adult ticket price is: \(adultFares[1])")
+            }
+            else if ticketType == 3{
+                print("Your adult ticket price is: \(adultFares[2])")
+            }
+            else {
+                print("Sorry mate, that's not a valid ticket index!")
+            }
+        }
+        else{
+            if ticketType == 1{
+                print("Your child ticket price is: \(childFares[0])")
+            }
+            else if ticketType == 2{
+                print("Your child ticket price is: \(childFares[1])")
+            }
+            else if ticketType == 3{
+                print("Your child ticket price is: \(childFares[2])")
+            }
+            else { 
+                print("Sorry, kid! That's not the correct number!")
+            }
+        }
+
+
 
 
 
