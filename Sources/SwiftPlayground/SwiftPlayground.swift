@@ -4,7 +4,7 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        var invitees = [""]
+        var invitees: [String] = []
         var userAppend = true
         var userRemove = false
         while userAppend {
@@ -33,7 +33,18 @@ struct SwiftPlayground {
             }
         }
 
-        print("The list of invitees is \(invitees).")
+        if invitees.count <= 0{
+            print("Your party is Empty!")
+        }
+        else if invitees.count >= 1 && invitees.count <= 5{
+            print("Your party of \(invitees) is a small party!")
+        }
+        else if invitees.count >= 6 && invitees.count <= 20{
+            print("Your party of \(invitees) is a Large Party")
+        }
+        else if invitees.count > 20{
+            print("Your party is too large!")
+        }
     }
 
 }
