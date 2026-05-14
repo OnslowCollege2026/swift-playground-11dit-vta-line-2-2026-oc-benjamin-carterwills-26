@@ -9,30 +9,31 @@ struct SwiftPlayground {
         var userRemove = false
         while userAppend {
             print ("Type the names of people you would like to invite to the party:")
-            let userInput = 
-            switch userInput{
-                case "q": //Quit
-                    print("Thank you. Your order will be:")
-                    selectedTickets.forEach { ticket in
-                        print(ticket)
-                    }
-                    print("")
-                    print("The final cost will be $\(cost)")
-                    isRunning = false
-                    case "c": //Child ticket
-                    cost = cost + 8
-                    selectedTickets = selectedTickets + ["Child Ticket"]
-                    print("A child ticket has been added. The total price of your tickets wil be: $\(cost)")
-                    case "a": //Adult ticket
-                    cost = cost + 12
-                    selectedTickets = selectedTickets + ["Adult Ticket"]
-                    print("An adult ticket has been added. The total price of your tickets wil be: $\(cost)")
-                    case "s": //Child ticket
-                    cost = cost + 18
-                    selectedTickets = selectedTickets + ["Senior Ticket"]
-                    print("A senior ticket has been added. The total price of your tickets wil be: $\(cost)")
+            let userInput = readLine()!
+            if userInput == (""){
+                userAppend = false
+                userRemove = true
+            }
+            else{
+                invitees.append(userInput)
+            }
+            }
+
+        while userRemove {
+            print("The current list is: \(invitees)") // Lets the user know the current list to see if they want to remove someone.
+            print ("If you would like to remove anyone from the list, type their name.")
+            let userInput = readLine()!
+            if userInput == ""{
+                userRemove = false
+            }
+            else{
+                if let index = invitees.firstIndex(of: userInput) {
+                     invitees.remove(at: index)
+                }
             }
         }
-        }
+
+        print("The list of invitees is \(invitees).")
+    }
 
 }
