@@ -9,7 +9,6 @@ struct SwiftPlayground {
         var userRemove = false
         while userAppend {
             print ("Type the names of people you would like to invite to the party:")
-            
         }
         }
 
