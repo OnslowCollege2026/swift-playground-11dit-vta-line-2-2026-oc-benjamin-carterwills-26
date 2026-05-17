@@ -7,7 +7,7 @@ struct SwiftPlayground {
         // Input = the users ingredients
         // Process = Store the users entered strings into an array
         // Iteration = Repeat the Input stage until the user enters an empty value, therfore pressing "enter"
-        // Output = printing list of ingrediants, checking for "Chocolate" in array and if found printing "Yum!"
+        // Output = printing list of ingrediants, checking for "Chocolate" in array and if found printing "Yum!". End with printing "Lets start cooking!"
 
         var running = true
 
@@ -17,7 +17,7 @@ struct SwiftPlayground {
 
         while running{
             listNum = ingrediantsList.count
-            print ("Please enter an ingredient to add to the list. You currently have \(listNum) ingrediants in your list.")
+            print ("Please enter an ingredient to add to the list, or press enter to exit. You currently have \(listNum) ingrediants in your list.")
 
             let userInput = readLine()!
             if userInput == (""){
@@ -28,7 +28,13 @@ struct SwiftPlayground {
             }
         }
 
-        print("You list contains the following ingrediants: \(ingrediantsList)")
+        print("You list of \(listNum) ingrediants contains the following: \(ingrediantsList).")
+
+        if ingrediantsList.contains("Chocolate"){
+            print ("Yum!")
+        }
+
+        print("Let's Start Cooking!")
     }
 
 }
