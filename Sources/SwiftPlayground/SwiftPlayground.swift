@@ -15,24 +15,23 @@ struct SwiftPlayground {
         var listNum = 0
 
 
-        while running{
+        while running{ //Iteration - repeats the code until the "running" boolean becomes false.
             listNum = ingrediantsList.count
             print ("Please enter an ingredient to add to the list, or press enter to exit. You currently have \(listNum) ingrediants in your list.")
 
-            let userInput = readLine()!
+            let userInput = readLine()! // Input stage - after asking question, code waits for input.
             if userInput == (""){
                 running = false
             }
-            else{
-                ingrediantsList.append(userInput)
+            else if userInput == "Chocolate"{
+                print ("Chocolate! Yum!!") // Special condition for typing "Chocolate."
+            }
+            else {
+                ingrediantsList.append(userInput) // Process - stores the users entered values to an array.
             }
         }
 
-        print("You list of \(listNum) ingrediants contains the following: \(ingrediantsList).")
-
-        if ingrediantsList.contains("Chocolate"){
-            print ("Yum!")
-        }
+        print("You list of \(listNum) ingrediants contains the following: \(ingrediantsList).") // Output - Displays the ingrediants and count (a little extra thingy)
 
         print("Let's Start Cooking!")
     }
