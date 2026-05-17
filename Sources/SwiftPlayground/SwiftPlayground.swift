@@ -16,10 +16,19 @@ struct SwiftPlayground {
 
 
         while running{
+            listNum = ingrediantsList.count
             print ("Please enter an ingredient to add to the list. You currently have \(listNum) ingrediants in your list.")
 
-            let userInput = 
+            let userInput = readLine()!
+            if userInput == (""){
+                running = false
+            }
+            else{
+                ingrediantsList.append(userInput)
+            }
         }
+
+        print("You list contains the following ingrediants: \(ingrediantsList)")
     }
 
 }
