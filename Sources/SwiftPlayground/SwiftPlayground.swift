@@ -20,10 +20,10 @@ struct SwiftPlayground {
             print ("Please enter an ingredient to add to the list, or press enter to exit. You currently have \(listNum) ingrediants in your list.")
 
             let userInput = readLine()! // Input stage - after asking question, code waits for input.
-            if userInput == (""){
+            if userInput.lowercased() == (""){
                 running = false
             }
-            else if userInput == "Chocolate"{
+            else if userInput.lowercased() == "Chocolate"{
                 print ("Chocolate! Yum!!") // Special condition for typing "Chocolate."
             }
             else {
