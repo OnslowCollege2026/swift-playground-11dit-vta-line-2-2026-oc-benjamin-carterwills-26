@@ -4,36 +4,26 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        // Input = the users ingredients
-        // Process = Store the users entered strings into an array
-        // Iteration = Repeat the Input stage until the user enters an empty value, therfore pressing "enter"
-        // Output = printing list of ingrediants, checking for "Chocolate" in array and if found printing "Yum!". End with printing "Lets start cooking!"
+    // Test that it works as it should using the testing table
+    // Task - Only to accept people in if they are over the age of 18 
+    var running = true
 
-        var running = true
-
-        var ingrediantsList: [String] = []
-        var listNum = 0
-
-
-        while running{ //Iteration - repeats the code until the "running" boolean becomes false.
-            listNum = ingrediantsList.count
-            print ("Please enter an ingredient to add to the list, or press enter to exit. You currently have \(listNum) ingrediants in your list.")
-
-            let userInput = readLine()! // Input stage - after asking question, code waits for input.
-            if userInput.lowercased() == (""){
-                running = false
-            }
-            else if userInput.lowercased() == "Chocolate"{
-                print ("Chocolate! Yum!!") // Special condition for typing "Chocolate."
-            }
-            else {
-                ingrediantsList.append(userInput) // Process - stores the users entered values to an array.
-            }
+    while running{
+        print("What is your age?")
+        if let input = readLine(), let age = Int(input) {
+        if age < 0 || age >= 122 {
+            print("Age incorrect.")
+        } else if age <= 18 {
+            print("Too young.")
+        } else {
+            print("You may enter")
+            running = false
         }
+        } else {
+            print("Please enter a number.")
+        }
+    }
 
-        print("You list of \(listNum) ingrediants contains the following: \(ingrediantsList).") // Output - Displays the ingrediants and count (a little extra thingy)
-
-        print("Let's Start Cooking!")
     }
 
 }
