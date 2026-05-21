@@ -4,25 +4,18 @@
 @main
 struct SwiftPlayground {
     static func main() {
-    // Test that it works as it should using the testing table
-    // Task - Only to accept people in if they are over the age of 18 
-    var running = true
 
-    while running{
-        print("What is your age?")
-        if let input = readLine(), let age = Int(input) {
-        if age < 0 || age >= 122 {
-            print("Age incorrect.")
-        } else if age <= 18 {
-            print("Too young.")
+        print("Enter the length of the movie in minutes:")
+
+        if let input = readLine(), let movieLength = Int(input) {
+            if movieLength < 30 || movieLength > 300 {
+                print("Movie length out of bounds.")
+            } else {
+                print("Movie length accepted: \(movieLength) minutes.")
+            }
         } else {
-            print("You may enter")
-            running = false
+            print("Please enter a valid number for the movie length.")
         }
-        } else {
-            print("Please enter a number.")
-        }
-    }
 
     }
 
