@@ -6,16 +6,21 @@ struct SwiftPlayground {
     static func main() {
 
         print("Enter the length of the movie in minutes:")
-
-        if let input = readLine(), let movieLength = Int(input) {
+        var running = true
+        var movies:(Double) []
+        while running{
+            if let input = readLine(), let movieLength = Double(input) {
             if movieLength < 30 || movieLength > 300 {
                 print("Movie length out of bounds.")
             } else {
                 print("Movie length accepted: \(movieLength) minutes.")
             }
-        } else {
-            print("Please enter a valid number for the movie length.")
+            } else {
+                print("Please enter a valid number for the movie length.")
+            }
+
         }
+        
 
     }
 
