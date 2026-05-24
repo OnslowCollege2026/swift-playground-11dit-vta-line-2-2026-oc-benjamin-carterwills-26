@@ -5,27 +5,26 @@
 struct SwiftPlayground {
     static func main() {
 
-        var running = true
-        var movies:  [Double] = []
-        while running{
-            print("Enter the length of the movie in minutes:")
-            if let input = readLine(), let movieLength = Double(input) {
-                if movieLength < 30 || movieLength > 300 {
-                    print("Movie length out of bounds.")
-                }
-                else if input == (""){
-                    running = false
-                }
-                else {
-                    print("Movie length accepted: \(movieLength) minutes.")
-                    movies.append(movieLength)
-                }
-                
-            } else {
-                print("Please enter a valid number for the movie length.")
-            }
+    var age: Int? = nil
 
-        }
+    while age == nil {
+        print("Enter your age:")
+        
+        if let input = readLine(), let enteredAge = Int(input) {
+            if enteredAge < 0 {
+                print("Age cannot be negative. Enter a valid age.")
+            } else if enteredAge < 18 {
+                print("You must be 18 or older. Enter a valid age.")
+            } else {
+                age = enteredAge
+            }
+        } else {
+            print("Invalid input. Enter a valid integer for age.")
+        }}
+
+
+    print("Valid age entered: \(age!)")
+
         
 
     }
