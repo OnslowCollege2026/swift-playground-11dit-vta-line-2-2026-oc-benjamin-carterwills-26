@@ -25,18 +25,27 @@ struct SwiftPlayground {
         ticketCostInput = true
 
         while ticketCostInput{
-            if let input = readLine(), let number = Int(input) {
+            if let input = readLine(), let number = Int(input), number < ticketCostMax || number > 0 {
                 print("Success! The ticket cost is is \(number)")
 
                 ticketCostInput = false
                 foodCostInput = true
 
             } 
-            else if number > ticketCostMax || number <= 0{
-                
-            }
             else {
-                print("Invalid input. Please enter a valid whole number.")
+                print("Invalid input. Please enter a valid whole number above 0 and below 1000.")
+            }
+        }
+        while foodCostInput == true{
+            if let input = readLine(), let number = Int(input), number < ticketCostMax || number > 0 {
+                print("Success! The ticket cost is is \(number)")
+
+                ticketCostInput = false
+                foodCostInput = true
+
+            } 
+            else {
+                print("Invalid input. Please enter a valid whole number above 0 and below 1000.")
             }
         }
         
