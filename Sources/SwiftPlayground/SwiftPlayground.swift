@@ -4,30 +4,48 @@
 @main
 struct SwiftPlayground {
     static func main() {
+        print("Enter the first number (left-hand side): ")
+        let leftHandSide = Int(readLine()!)!
+        print("Enter the second number (right-hand side): ")
+        let rightHandSide = Int(readLine()!)!
 
-        //TASK 1
-        //Tells the user what directions they should follow to get to times square.
-        func directionsToTimeSquare(){
-            print("Walk 4 mins to 34th St Herald Square train station.")
-            print("Take the Northbound N, Q, R, or W train 1 stop.")
-            print("Get off the Times Square 42nd Street stop.")
-            print("Take lots of pictures! 📸")
-            
+
+        print("Type add, subtract, multiply or divide: ")
+        let calculationType = readLine()!.lowercased()
+
+
+        func add() {
+        let answer = leftHandSide + rightHandSide
+        print("\(leftHandSide) + \(rightHandSide) = \(answer)")
         }
 
-        directionsToTimeSquare()
 
-        //TASK 2
-
-        let weight: Float = 46
-        let height: Float = 1.6
-
-        func findBMI(){
-            let bmi = weight / height
-            print(bmi)
+        func subtract() {
+        let answer = leftHandSide - rightHandSide
+        print("\(leftHandSide) - \(rightHandSide) = \(answer)")
         }
 
-        findBMI()
+        func multiply() {
+        let answer = leftHandSide * rightHandSide
+        print("\(leftHandSide) * \(rightHandSide) = \(answer)")
+        }
+
+        func divide() {
+        let answer = leftHandSide / rightHandSide
+        print("\(leftHandSide) / \(rightHandSide) = \(answer)")
+        }
+
+
+        if calculationType == "add"{
+        add()
+        } else if calculationType == "subtract"{
+        subtract()
+        } else if calculationType == "multiply"{
+        multiply()
+        } else if calculationType == "divide"{
+        divide()
+        }
+
     }
 
 }
