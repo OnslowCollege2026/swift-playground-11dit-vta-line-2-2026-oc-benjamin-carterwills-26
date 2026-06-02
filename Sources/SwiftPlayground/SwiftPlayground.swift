@@ -4,56 +4,30 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        var ticketCostInput: Bool
-        var foodCostInput: Bool
-        var drinkCostInput: Bool
-        var personCountInput: Bool
 
-        let ticketCost: Double
-        let ticketCostMax = 100
-
-        let foodCost: Double
-        let foodCostMax = 1000
-
-        let drinkCost: Double
-        let drinkCostMax = 1000
-
-        let perPersonCost: Double = (ticketCost + foodCost + drinkCost)
-        let personCount: Double
-        let total = (perPersonCost * personCount)
-
-        ticketCostInput = true
-
-        while ticketCostInput{
-            if let input = readLine(), let number = Int(input), number < ticketCostMax || number > 0 {
-                print("Success! The ticket cost is is \(number)")
-
-                ticketCostInput = false
-                foodCostInput = true
-
-            } 
-            else {
-                print("Invalid input. Please enter a valid whole number above 0 and below 1000.")
-            }
+        //TASK 1
+        //Tells the user what directions they should follow to get to times square.
+        func directionsToTimeSquare(){
+            print("Walk 4 mins to 34th St Herald Square train station.")
+            print("Take the Northbound N, Q, R, or W train 1 stop.")
+            print("Get off the Times Square 42nd Street stop.")
+            print("Take lots of pictures! 📸")
+            
         }
-        while foodCostInput == true{
-            if let input = readLine(), let number = Int(input), number < ticketCostMax || number > 0 {
-                print("Success! The ticket cost is is \(number)")
 
-                ticketCostInput = false
-                foodCostInput = true
+        directionsToTimeSquare()
 
-            } 
-            else {
-                print("Invalid input. Please enter a valid whole number above 0 and below 1000.")
-            }
+        //TASK 2
+
+        let weight: Float = 46
+        let height: Float = 1.6
+
+        func findBMI(){
+            let bmi = weight / height
+            print(bmi)
         }
-        
 
-        print("The total food cost for a party of \(personCount) will be\(foodCost * personCount)")
-        print("The total drink cost for a party of \(personCount) will be\(drinkCost * personCount)")
-        print("Each person needs to pay \(perPersonCost)")
-        print("Total cost is: $\(total)")
+        findBMI()
     }
 
 }
