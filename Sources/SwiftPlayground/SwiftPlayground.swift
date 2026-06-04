@@ -4,48 +4,34 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        //Lets the user input two numbers, which are assigned to constants.
-        print("Enter the first number (left-hand side): ")
-        let leftHandSide = Int(readLine()!)!
-        print("Enter the second number (right-hand side): ")
-        let rightHandSide = Int(readLine()!)!
 
-        //Asks the user what method they want to use.
-        print("Type add, subtract, multiply or divide: ")
-        let calculationType = readLine()!.lowercased()
+        /* Test that it works as it should using the testing table
+        Task - Only to accept people in if they are over the age of 18 */
 
-        //This function adds the two numbers together, then prints the equation and answer.
-        func add() {
-        let answer = leftHandSide + rightHandSide
-        print("\(leftHandSide) + \(rightHandSide) = \(answer)")
+        // This function checks to see if the user has inputted a valid integer, with adjustable prompt string and maximum/minumum integers.
+        func input(prompt: String, from: Int, to: Int) -> Int { 
+         // Runs the integer validity checker over and over until a valid integer is entered, which then returns the integer back to the function caller.
+        while true {
+            print(prompt, terminator: " ")
+            //if the user's input is and integer, then checks if it is between the confgurated maximum and minimum.
+            if let userInput = readLine(), let int = Int(userInput), (from...to).contains(int) {
+                return int
+            } else {
+                print("You must enter a valid whole number (integer) from \(from) to \(to).")
+            }
         }
-
-        //This function subtracts the two numbers together, then prints the equation and answer.
-        func subtract() {
-        let answer = leftHandSide - rightHandSide
-        print("\(leftHandSide) - \(rightHandSide) = \(answer)")
-        }
-        //This function multiplys the two numbers together, then prints the equation and answer.
-        func multiply() {
-        let answer = leftHandSide * rightHandSide
-        print("\(leftHandSide) * \(rightHandSide) = \(answer)")
-        }
-        //This function divides the two numbers together, then prints the equation and answer.
-        func divide() {
-        let answer = leftHandSide / rightHandSide
-        print("\(leftHandSide) / \(rightHandSide) = \(answer)")
         }
 
-        //Checks which method the user has picked. 
-        if calculationType == "add"{
-        add()
-        } else if calculationType == "subtract"{
-        subtract()
-        } else if calculationType == "multiply"{
-        multiply()
-        } else if calculationType == "divide"{
-        divide()
+        //Calls the integer validity checker, and gives it some configurations.
+        let age: Int = input(prompt: "What is your age?", from: 0, to: 100) 
+
+        //This switch checks to see if the user is above 18, if they are 0, or if they are too young. 
+        switch age {
+        case 0: print("Hello, little baby!")
+        case ...17: print("You are too young.")
+        default: print("Welcome!")
         }
+
 
     }
 
