@@ -16,6 +16,7 @@ struct SwiftPlayground {
         var running: Bool = true
         //Array for all of the possible birds
         let birds: [String]  = [
+            "Tieke",
             "Kākā",
             "Takahē",
             "Hihi",
@@ -43,7 +44,7 @@ struct SwiftPlayground {
 
 
         while running{
-            print("Would you like to mark a (B)IRD or (I)NSECT?")
+            print("Would you like to mark a (B)IRD or (I)NSECT? (Q to Quit)")
             let birdOrInsect: String = readLine()!
 
             if birdOrInsect.lowercased() == "b"{
@@ -51,49 +52,54 @@ struct SwiftPlayground {
                     print("\(index + 1) \(bird)")
                 }
                 print ("Which of these Birds did you see?")
-                birdSelect()
+                var birdAppending = true
+                while birdAppending == true{
+                    if let userInput = readLine(), let birdIndex = Int(userInput), birdIndex >= 1 && birdIndex <= 7{
+                    print("\(birds[birdIndex - 1]) Added.")
+                    selectedBirds.append(birds[birdIndex - 1])
+                    birdAppending = false
+                    }
+                    else{
+                        print("Please enter a valid integer from 1-7, corresponding with your target bird.")
+                    }
+                }
             } else if birdOrInsect.lowercased() == "i"{
                 insects.enumerated().forEach { index, insect in
                     print("\(index + 1) \(insect)")
                 }
                 print ("Which of these Insects did you see?")
-                insectSelect()
-            } else{
-                print ("Please enter a valid input of either (B for Birds) or (I for Insects)")
-            }
-        }
-
-        func Select(array: Int) {
-            var selectedArray: [String] = []
-            switch array{
-                case 1: let selectedArray = birds
-                case 2: let selectedArray = insects
-                default: print("Error: Selected Array does not exist!")
-            }
-            let birdInputtedIndex = readLine()!
-            let index = Int(birdInputtedIndex)
-            var objectAppending: Bool = true
-            while objectAppending == true{
-                switch index{
-                    case 1: selectedBirds.append(selectedArray[0]); print("You have added a \(selectedArray{0})") ; objectAppending = false
-                    case 2: selectedBirds.append(birds[1]); objectAppending = false
-                    case 3: selectedBirds.append(birds[2]); objectAppending = false
-                    case 4: selectedBirds.append(birds[3]); objectAppending = false
-                    case 5: selectedBirds.append(birds[4]); objectAppending = false
-                    case 6: selectedBirds.append(birds[5]); objectAppending = false
-                    case 7: selectedBirds.append(birds[6]); objectAppending = false
-                    case 8: selectedBirds.append(birds[7]); objectAppending = false
-                    default: print("Please enter a valid number between 1 and 8.")
+                var insectAppending = true
+                while insectAppending == true{
+                    if let userInput = readLine(), let insectIndex = Int(userInput), insectIndex >= 1 && insectIndex <= 7{
+                    print("\(insects[insectIndex - 1]) Added.")
+                    selectedInsects.append(insects[insectIndex - 1])
+                    insectAppending = false
+                    }
+                    else{
+                        print("Please enter a valid number from 1-7, corresponding with your target bird.")
+                    }
                 }
+            } else if birdOrInsect.lowercased() == "q"{
+                running = false
+            }        
+            else{
+                print ("Please enter a valid input of (B for Birds), (I for Insects), or (Q to Quit)")
             }
+        }
+
+        print("During your trip to Zealandia, you have observed:")
+        let birdTallies = selectedBirds.reduce(into: [:]) { counts, bird in
+            counts[bird, default: 0] += 1
+        }
+        print (birdTallies)
+        print("And as well as:")
+        let insectTallies = selectedInsects.reduce(into: [:]) { counts, insect in
+            counts[insect, default: 0] += 1
+        }
+        print (insectTallies)
+        print("Please Come Again!")
             
         }
 
-        func insectSelect(){
-            
-        }
-
-
-    }
 
 }
