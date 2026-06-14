@@ -54,13 +54,13 @@ struct SwiftPlayground {
                 print ("Which of these Birds did you see?")
                 var birdAppending = true
                 while birdAppending == true{
-                    if let userInput = readLine(), let birdIndex = Int(userInput), birdIndex >= 1 && birdIndex <= 7{
+                    if let userInput = readLine(), let birdIndex = Int(userInput), birdIndex >= 1 && birdIndex <= 8{
                     print("\(birds[birdIndex - 1]) Added.")
                     selectedBirds.append(birds[birdIndex - 1])
                     birdAppending = false
                     }
                     else{
-                        print("Please enter a valid integer from 1-7, corresponding with your target bird.")
+                        print("Please enter a valid integer from 1-8, corresponding with your target bird.")
                     }
                 }
             } else if birdOrInsect.lowercased() == "i"{
@@ -76,7 +76,7 @@ struct SwiftPlayground {
                     insectAppending = false
                     }
                     else{
-                        print("Please enter a valid number from 1-7, corresponding with your target bird.")
+                        print("Please enter a valid number from 1-8, corresponding with your target bird.")
                     }
                 }
             } else if birdOrInsect.lowercased() == "q"{
