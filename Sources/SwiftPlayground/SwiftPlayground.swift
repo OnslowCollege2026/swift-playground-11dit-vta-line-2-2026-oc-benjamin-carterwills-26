@@ -32,7 +32,7 @@ struct SwiftPlayground {
             print("What is the daily maximum screen time this week?")
             var screenTimeInputRunning: Bool = true
             while screenTimeInputRunning{
-                if let userInput = readLine(), let maxInput = Double(userInput), maxInput <= minimumDailyLimit && maxInput <= maximumDailyLimit {
+                if let userInput = readLine(), let maxInput = Double(userInput), maxInput >= minimumDailyLimit && maxInput <= maximumDailyLimit {
                     print("Maximum screen time set to: \(maxInput)")
                     screenTimeInputRunning = false
                 }
@@ -56,7 +56,7 @@ struct SwiftPlayground {
         apps.forEach { app in
             print("\(app):")
             while appTimeRunning{
-            if let userInput = readLine(), let appTime = Double(userInput), appTime <= minimumAppTime, appTime <= maximumAppTime {
+            if let userInput = readLine(), let appTime = Double(userInput), appTime >= minimumAppTime, appTime <= maximumAppTime {
                 dayTotal += appTime
                 appTimeRunning = false
             }
