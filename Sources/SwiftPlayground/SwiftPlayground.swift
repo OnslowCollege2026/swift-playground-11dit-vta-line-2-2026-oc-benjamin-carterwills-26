@@ -59,12 +59,8 @@ struct SwiftPlayground {
             print ("Your average sleep time indicates that you have had \(sleepStatus)")
             print("Would you like to record another week?")
             let repeatWeek = readLine()!
-            if repeatWeek.lowercased() == "n"{
-                isRunning = false
-            }
-            else {
-                print("Starting Again...")
-            }
+            
+            
         }
 
         print("Thank you for using the Sigma Sleep Tracker, by Sigma Sleep Solutions!")
