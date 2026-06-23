@@ -18,7 +18,6 @@ struct SwiftPlayground {
         let minimumAppTime: Double = 0
 
         //This variable counts the total hours in a week.
-        var totalWeekTime: Double = 0
 
         //Prints out the title of the applicaton.
         print("Welcome To Screen Time Tracker")
@@ -27,45 +26,44 @@ struct SwiftPlayground {
         let days: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         let apps: [String] = ["Facebook", "SnapChat", "Instagram", "Discord", "Other"]
         while isRunning{
-            //Sets the total week time back to zero to start measuring another week
-            totalWeekTime = 0 
+            //A variable which is to be modified to hold the sum of all the days hours.
+            var totalWeekTime: Double = 0
             print("What is the daily maximum screen time this week?")
-            var screenTimeInputRunning: Bool = true
-            while screenTimeInputRunning{
-                if let userInput = readLine(), let maxInput = Double(userInput), maxInput >= minimumDailyLimit && maxInput <= maximumDailyLimit {
-                    print("Maximum screen time set to: \(maxInput)")
-                    screenTimeInputRunning = false
-                }
-                else { 
-                    print("Please enter a valid number from 1-5")
-                }
-            }
+            //Calls the Double Checker funtion to make sure the input is a Double, below the maximum and above the minimum
+            let maxInput = checkDouble(minimum: minimumDailyLimit, maximum: maximumDailyLimit)
 
-            
+            print("Screen Time Maximum Set To: \(maxInput). Let's record the actual hours you spend on your device.")
             days.forEach{ day in
-                appTimeTrack(dayString: day)
-            }
+                var dayTotal: Double = 0
+                print("On \(day), how many hours did you spend on:")
+                apps.forEach { app in
+                    print("\(app):")
+                    dayTotal += checkDouble(minimum: minimumAppTime, maximum: maximumAppTime)
+                }
+                print("Overall on \(day) you spendt \(dayTotal) hours doom scrolling.")
+                totalWeekTime += dayTotal
+                }
+
+            let dailyAverage = totalWeekTime / Double(days.count)
+            let appAverage = dailyAverage / Double(apps.count)
+            print("This week, you spent a total of \(totalWeekTime) hours doom scrolling. This results to an average of \(dailyAverage) hours per day, and an average of \(appAverage)) hours per app")
+            if (dailyAverage >  )
 
 
     }
 
-    func appTimeTrack(dayString: String){
-        var dayTotal: Double = 0
-        print("On \(dayString), how many hours did you spend on:")
-        var appTimeRunning: Bool = true
-        apps.forEach { app in
-            print("\(app):")
-            while appTimeRunning{
-            if let userInput = readLine(), let appTime = Double(userInput), appTime >= minimumAppTime, appTime <= maximumAppTime {
-                dayTotal += appTime
-                appTimeRunning = false
+
+    func checkDouble(minimum: Double, maximum: Double) -> Double{
+        var functionRunning: Bool = true
+        while functionRunning{
+            if let userInput = readLine(), let targetInput = Double(userInput), targetInput >= minimum, targetInput <= maximum{
+                functionRunning = false
+                return targetInput
             }
-            else {
-                print("Please enter a valid number from 0-12")
-            }
+            else{
+                print("Please enter a valid number between \(minimum) and \(maximum)")
             }
         }
-        totalWeekTime += dayTotal
         
     }
 }
