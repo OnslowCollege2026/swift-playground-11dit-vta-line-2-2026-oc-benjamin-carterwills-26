@@ -17,9 +17,7 @@ struct SwiftPlayground {
         let maximumAppTime: Double = 12
         let minimumAppTime: Double = 0
 
-        //This variable counts the total hours in a week.
-
-        //Prints out the title of the applicaton.
+        //This one is self-explanitory. It prints out the title.
         print("Welcome To Screen Time Tracker")
 
         //an array of days to be used in the for loop, with the number of days workng as the loop count and the strings used in the print statements.
@@ -31,20 +29,28 @@ struct SwiftPlayground {
             print("What is the daily maximum screen time this week?")
             //Calls the Double Checker funtion to make sure the input is a Double, below the maximum and above the minimum
             let maxInput = checkDouble(minimum: minimumDailyLimit, maximum: maximumDailyLimit)
+            //Prints out what the user set the maximum screen time limit to, then introduces them to the next part of the program.
+            print("Screen Time Maximum Set To: \(maxInput). Let's record the actual hours you spend on your device.").
 
-            print("Screen Time Maximum Set To: \(maxInput). Let's record the actual hours you spend on your device.")
+            //repeats the loop for each day in the week array.
             days.forEach{ day in
+                //A variable used to store the total sum of the hours of each app.
                 var dayTotal: Double = 0
                 print("On \(day), how many hours did you spend on:")
+                //repeats this loop for each app in the apps array.
                 apps.forEach { app in
                     print("\(app):")
+                    //Calls the Double Check function to get user input, while making sure it is a Double, above the minimum app time and below the maximum app time, then adds that input to the day total.
                     dayTotal += checkDouble(minimum: minimumAppTime, maximum: maximumAppTime)
                 }
+                //Prints the total hours the user spent doomscrolling on that day.
                 print("Overall on \(day) you spent \(dayTotal) hours doom scrolling.")
                 totalWeekTime += dayTotal
                 }
 
+            //Makes a daily average by dividing the total week time by the amount of days in the week. I useed days.count to remove magic numbers.
             let dailyAverage = totalWeekTime / Double(days.count)
+            //Makes an apply average by dividing the daily average by the amount of apps in the 
             let appAverage = dailyAverage / Double(apps.count)
             print("=---------------------------------------------------------------------=")
             print("CONCLUSION")
