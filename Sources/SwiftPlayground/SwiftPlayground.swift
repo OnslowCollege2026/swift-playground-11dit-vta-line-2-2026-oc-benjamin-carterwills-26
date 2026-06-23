@@ -4,8 +4,8 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        //Boolean for wether or not the program should loop or quit.
-        let isRunning: Bool = true
+        //variable Boolean for whether or not the program should loop or quit.
+        var isRunning: Bool = true
 
         //These constants are put in place to remove magic numbers and define values
 
@@ -40,14 +40,24 @@ struct SwiftPlayground {
                     print("\(app):")
                     dayTotal += checkDouble(minimum: minimumAppTime, maximum: maximumAppTime)
                 }
-                print("Overall on \(day) you spendt \(dayTotal) hours doom scrolling.")
+                print("Overall on \(day) you spent \(dayTotal) hours doom scrolling.")
                 totalWeekTime += dayTotal
                 }
 
             let dailyAverage = totalWeekTime / Double(days.count)
             let appAverage = dailyAverage / Double(apps.count)
-            print("This week, you spent a total of \(totalWeekTime) hours doom scrolling. This results to an average of \(dailyAverage) hours per day, and an average of \(appAverage)) hours per app")
-            if (dailyAverage >  )
+            print("=---------------------------------------------------------------------=")
+            print("CONCLUSION")
+            print("=---------------------------------------------------------------------=")
+            print("This week, you spent a total of \(totalWeekTime) hours doom scrolling. This results to an average of \(dailyAverage) hours per day, and an average of \(appAverage) hours per app.")
+            if (dailyAverage > maxInput){
+                print("Overall, you have gone OVERTIME on your screen limit!")
+            }
+            else{
+                print("Overall, you have RESPECTED your screen time limit! Good Job! :)")
+            }
+            print("=---------------------------------------------------------------------=")
+            isRunning = false
 
 
     }
